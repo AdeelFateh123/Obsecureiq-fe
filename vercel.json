@@ -3,18 +3,7 @@
   "rewrites": [
     {
       "source": "/backend/:path*",
-      "destination": "http://osint-platform-alb-1887306171.us-east-1.elb.amazonaws.com/:path*"
-    }
-  ],
-  "headers": [
-    {
-      "source": "/backend/:path*",
-      "headers": [
-        {
-          "key": "x-vercel-enable-rewrite-caching",
-          "value": "0"
-        }
-      ]
+      "destination": "http://osint-platform-alb-1887306171.us-east-1.elb.amazonaws.com:8080/:path*"
     }
   ]
 }
