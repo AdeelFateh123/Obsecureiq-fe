@@ -3,7 +3,7 @@
   "rewrites": [
     {
       "source": "/backend/:path*",
-      "destination": "http://osint-platform-alb-1887306171.us-east-1.elb.amazonaws.com:8080/:path*"
+      "destination": "http://osint-platform-alb-1887306171.us-east-1.elb.amazonaws.com/:path*"
     }
   ]
 }
