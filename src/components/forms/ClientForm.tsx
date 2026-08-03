@@ -14,6 +14,7 @@ interface ClientData {
   sex?: string;
   organization?: string;
   employer?: string;
+  tier?: string;
   darkside_module?: boolean;
   snubase_module?: boolean;
   profile_photo_url?: string;
@@ -45,6 +46,7 @@ const ClientForm = ({
     sex: "",
     organization: "",
     employer: "",
+    tier: "",
     darkside_module: false,
     snubase_module: false
   });
@@ -62,6 +64,7 @@ const ClientForm = ({
         sex: initialData.sex || "",
         organization: initialData.organization || "",
         employer: initialData.employer || "",
+        tier: initialData.tier || "",
         darkside_module: initialData.darkside_module || false,
         snubase_module: initialData.snubase_module || false
       });
@@ -270,6 +273,19 @@ const ClientForm = ({
                 onChange={(e) => handleInputChange("employer", e.target.value)}
                 placeholder="Enter employer"
               />
+            </div>
+
+            <div className="space-y-2">
+              <Label htmlFor="tier">Tier</Label>
+              <Select value={formData.tier} onValueChange={(value) => handleInputChange("tier", value)}>
+                <SelectTrigger>
+                  <SelectValue placeholder="Select tier" />
+                </SelectTrigger>
+                <SelectContent>
+                  <SelectItem value="STANDARD">Standard</SelectItem>
+                  <SelectItem value="RESTRICTED">Restricted</SelectItem>
+                </SelectContent>
+              </Select>
             </div>
 
             <div className="space-y-2">

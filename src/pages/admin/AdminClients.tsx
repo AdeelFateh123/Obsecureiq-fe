@@ -22,6 +22,7 @@ interface Client {
   organization: string;
   status: string;
   risk_score: string;
+  tier?: string;
   darkside_module: boolean;
   snubase_module: boolean;
   analyst_id: number | null;
@@ -364,6 +365,7 @@ const AdminClients = () => {
                 <TableHead>Email</TableHead>
                 <TableHead>Phone</TableHead>
                 <TableHead>Organization</TableHead>
+                <TableHead>Tier</TableHead>
                 <TableHead>Darkside Module</TableHead>
                 <TableHead>Snubase Module</TableHead>
                 <TableHead className="text-right">Actions</TableHead>
@@ -395,6 +397,16 @@ const AdminClients = () => {
                       <EditableText
                         value={client.organization}
                         onSave={(value) => handleInlineUpdate(client.ID, 'organization', value)}
+                      />
+                    </TableCell>
+                    <TableCell className="p-0">
+                      <EditableDropdown
+                        value={client.tier || ""}
+                        options={[
+                          { value: "STANDARD", label: "Standard" },
+                          { value: "RESTRICTED", label: "Restricted" },
+                        ]}
+                        onSave={(value) => handleInlineUpdate(client.ID, 'tier', value)}
                       />
                     </TableCell>
                     <TableCell className="p-0">
@@ -457,7 +469,7 @@ const AdminClients = () => {
                 ))
               ) : (
                 <TableRow>
-                  <TableCell colSpan={7} className="text-center py-8">
+                  <TableCell colSpan={8} className="text-center py-8">
                     {searchQuery ? `No clients found matching "${searchQuery}"` : "No clients found"}
                   </TableCell>
                 </TableRow>

@@ -12,6 +12,7 @@ interface Client {
   sex?: string;
   organization?: string;
   employer?: string;
+  tier?: string;
   darkside_module: boolean;
   snubase_module: boolean;
   profile_photo_url?: string;
